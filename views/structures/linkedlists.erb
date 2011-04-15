@@ -1,0 +1,107 @@
+<% content_for :title do %>Linked Lists<% end %>
+
+<h1>Linked Lists</h1>
+<p>Where the behavior of arrays is largely defined by using contiguous blocks of memory, link lists are defined by the opposite: their ability to use non-contiguous memory. How do linked lists represent a cohesive collection of items then? In its simplest implementation, each node of a linked lists is a combination of the value and a reference to the next item in the list. Therefore, instead of relying on absolute position from a starting point, as array do, linked lists require each node to know the location of its sibling.</p>
+
+<h2>Implementation</h2>
+<pre id="code1"> function LinkedList() {
+  this.head = null;
+  this.tail = null;
+
+  this.add = function(value) {
+    <span class="line">var node = new Node(value);</span>
+    <span class="line">if (this.head == null)</span> { <span class="line">this.head = node;</span> }
+    <span class="line">if (this.tail != null)</span> {<span class="line"> this.tail.next = node;</span> }
+    <span class="line">this.tail = node;</span>
+  };
+}
+
+function Node(value) {
+  this.value = value;
+  this.next = null;
+}
+
+<span class="line">var list = new LinkedList();</span>
+<span class="line">list.add(1);</span>
+<span class="line">list.add(2);</span>
+<span class="line">list.add(3);</span>
+</pre>
+
+<h2>Example</h2>
+<p>Click <em>step</em> to add the values to our linked list</p>
+<div id="example1">
+  <div class="nodeList">
+    <div>&nbsp;</div>
+    <div class="used"></div>
+    <div>&nbsp;</div>
+    <div class="used"></div>
+    <div>&nbsp;</div>
+  </div>
+  <div class="step">step</div>
+</div>
+
+<h2>Manipulation</h2>
+<p>Manipulating the linked lists comes down to updating the affected <code>head</code>, <code>tail</code> and <code>next</code> references.</p>
+
+<h2>Remove Implementation</h2>
+<pre id="code2"> this.removeAt = function(index) {
+  var prev = null;
+  <span class="line">var node = this.head</span>;
+  var i = 0;
+  <span class="line">while (node != null &amp;&amp; i++ &lt; index) {</span>
+    <span class="line">prev = node</span>;
+    <span class="line">node = node.next</span>;
+  }
+  if (<span class="line">prev == null</span>) { <span class="line">this.head = node.next;</span>}
+  else { <span class="line">prev.next = node.next;</span> }
+};
+<span class="line">list.removeAt(1);</span>
+</pre>
+
+<h2>Remove Example</h2>
+<p>Click <em>step</em> to remove the value from our linked list</p>
+<div id="example2">
+  <div class="nodeList">
+    <div>1</div>
+    <div class="used"></div>
+    <div>2</div>
+    <div class="used"></div>
+    <div>3</div>
+  </div>
+  <div class="step">step</div>
+</div>
+
+<h2>Characteristics</h2>
+<p>In a world where memory isn't measured in gigabytes, linked lists have many advantages. Namely, they allow a structure to grow with minimal impact on available memory. Linked list can grow even within fragmented memory, and do so while providing constantly good insert performance. However, one does not have random access to individual nodes, resulting in constantly poor read performance. The overhead of a simple linked lists is essentially one reference per value.</p>
+
+<p>It is also common for each node to have a reference to the previous node. This is known as a doubly-linked list. This doubles the memory overhead as well as making manipulation more complicated (two references must be maintained rather than just one). However, it does make insertion and deletions within the list simpler.</p>
+
+<h2>In The Real World</h2>
+<p>Link lists' memory friendliness isn't the great benefit it once was. Dynamic arrays, with spare space to grow, are generally a better fit for today's programs. However, linked lists are still a solid implementation for collections which provide sequential access, like queues and stacks.</p>
+
+<div id="nav">
+  <a href="/structures/arrays" id="prev">&laquo; arrays</a>
+  <a href="/structures/hashtables" id="next">hash tables &raquo;</a>
+</div>
+
+<%= erb :disqus, :locals => {:identifier => '/algo/linkedlists'}%>
+  
+<script type="text/javascript">
+$(document).ready(function()
+{
+  var $code1 = $('#code1').code({});
+  var $code2 = $('#code2').code({});
+  $('#example1').example({
+    code: $code1, 
+    instructions: instructions.linkedList1,
+    hideAllOnEnd: true,
+    hideAllOnStart: true
+  });
+    
+  $('#example2').example({
+    code: $code2, 
+    instructions: instructions.linkedList2,
+    init: instructions.linkedList2Init
+  });
+});
+</script>

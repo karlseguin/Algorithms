@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html lang="en-US" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><% yield_content :title %></title>
+    <%= css('all') %>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <%= js('all')%>
+  </head>
+  <body>
+    <div id="site">
+      <div id="head"></div>
+      <div id="left">
+        <p><a href="/">home</a></p>
+        <p><a href="/search/linear">linear search</a></p>
+        <p><a href="/structures/arrays">arrays</a></p>
+        <p><a href="/structures/linkedlists">linked lists</a></p>
+        <p><a href="/structures/hashtables">hash tables</a></p>
+        <p><a href="/search/binarysearch">binary search</a></p>
+        <p><a href="/sort/bubblesort">bubble sort</a></p>
+        <p><a href="/sort/insertionsort">insertion sort</a></p>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>  
+  </body>
+</html>

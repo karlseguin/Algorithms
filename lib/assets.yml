@@ -1,0 +1,11 @@
+---
+js:
+  all:
+    - main
+    - jquery.code
+    - jquery.example
+    - teacher
+
+css:
+  all:
+    - main

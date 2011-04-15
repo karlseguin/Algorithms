@@ -1,0 +1,7 @@
+tmp/**/*
+all.js
+all.css
+all.js.gz
+all.css.gz
+.bundle
+deploy/deploy.rb

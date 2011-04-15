@@ -1,0 +1,47 @@
+html{font-family:verdana;}
+h1{font-size:1.2em;margin:3px 0;}
+h2{font-size:1em;margin:0;}
+ul{list-style:none;margin:0;padding:0;}
+li{margin:0;padding:0;}
+a{text-decoration:none;}
+code{background:#f6f6f6;border:1px solid #eee;padding:2px 5px;}
+pre{margin:5px;margin-bottom:20px;}
+#head{height:40px;position:relative;}
+#left{width:220px;padding:20px;float:left;}
+#left p{margin-bottom:20px;}
+#left a{padding:3px;color:#004A7F;border:1px solid transparent;background:#f0f0f0;}
+#left a:hover{background:#e6e6e6;border:1px solid #ccc;}
+#content{margin-left:300px;padding:20px;}
+#content p{line-height:1.4em;margin-top:0;}
+
+.example{user-select: none; -o-user-select:none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none;position:relative;}
+.example .top, .example .bottom{height:30px;overflow:hidden;font-size:80%;}
+.example .top div, .example .nodeList div, .example .bottom div{white-space: nowrap;float:left;margin-right:10px;padding:5px;text-align:center;border:1px solid transparent;}
+.example .top div{width:50px;}
+.example .bottom div, .example .nodeList div{min-width:50px;}
+.example .top .wide, .example .bottom .wide{margin-right:110px;}
+.example .bottom .bad{background: #fdd;}
+.example .bottom .good{background: #ddf;}
+.example .reference{position:absolute;top:62px;}
+.example .reference_200{width:200px;height:30px;background:url('/images/reference_200.png') no-repeat;}
+.example .reference_400{width:450px;height:30px;background:url('/images/reference_400.png') no-repeat;}
+.nodeList{margin-bottom:20px;height:20px;}
+.nodeList div{border:1px solid #666;background:#222;color:#ddd;height:20px;}
+.nodeList div.highlight{border:1px solid #eeb;background:#ffc;color:#222;}
+.nodeList div.used{background:url('/images/used.png') repeat-x;width:150px;color:#fff;}
+.step{position:absolute;right:10px;top:10px;padding:5px 10px;cursor:pointer;background:-webkit-gradient(linear,left top,left bottom,from(#eee),to(#ccc));background:-moz-linear-gradient(#eee,#ccc);background-color:#c0c2c0;text-decoration:none;color:#444;font-weight:bold;}
+.step:hover{color:#111;}
+.clear{overflow:hidden;}
+.hide{display:none;}
+
+#nav{margin-top:50px;height:50px;}
+#nav a{color:#5aa;}
+#prev{float:left;}
+#next{float:right;}
+
+pre .keyword{color:#069;}
+pre .control{color:#00f;}
+pre .string{color:#833;}
+pre .comment{color:#383;}
+pre span.highlight{background:#ffc;padding:3px 0px;}
+.r{-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
