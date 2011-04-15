@@ -13,6 +13,7 @@ pre{margin:5px;margin-bottom:20px;}
 #left a:hover{background:#e6e6e6;border:1px solid #ccc;}
 #content{margin-left:300px;padding:20px;}
 #content p{line-height:1.4em;margin-top:0;}
+#passion {position:absolute;top:20px;right:20px;font-weight:bold;font-style:italic;color:#bbb;font-size:0.75em;}
 
 .example{user-select: none; -o-user-select:none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none;position:relative;}
 .example .top, .example .bottom{height:30px;overflow:hidden;font-size:80%;}
