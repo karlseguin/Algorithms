@@ -1,6 +1,6 @@
+# from https://github.com/foca/sinatra-content-for
 module Sinatra
   module ContentFor
-  
     def content_for(key, &block)
       content_blocks[key.to_sym] << block
     end
