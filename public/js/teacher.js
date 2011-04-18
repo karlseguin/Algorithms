@@ -8,7 +8,7 @@ instructions.linearSearch = [
   {line: 1, comparison: {index: 1, value: '== 6', result: false}, nodes: [1]},
   {line: 0, variables: [{name: 'i', value: 2, index: 2}], nodes: [2]},
   {line: 1, comparison: {index: 2, value: '== 6', result: true}, nodes: [2]},
-  {line: 2, showReturn: {index: 2, value: 2}}
+  {line: 2, showReturn: {index: 2, value: 2}},
 ];
 
 instructions.dynamicArray = [
@@ -77,7 +77,7 @@ instructions.hashTable1 = [
   {line: 1},
   {line: 3, variables: [{name: 'sum', value: 0, index: 2, sticky: true}]},
   {line: 4, comparison: {index: 2, value: '0 < 4', result: true}},
-  {line: 5, variables: [{name: 'sum', value: 5, index: 2, sticky: true}], comparison: {index: 2, value: '0 + 101 - 97', result: true}},
+  {line: 5, variables: [{name: 'sum', value: 5, index: 2, sticky: true}], comparison: {index: 2, value: '0 + 102 - 97', result: true}},
   {line: 4, comparison: {index: 2, value: '1 < 4', result: true}},
   {line: 5, variables: [{name: 'sum', value: 9, index: 2, sticky: true}], comparison: {index: 2, value: '5 + 101 - 97', result: true}},
   {line: 4, comparison: {index: 2, value: '2 < 4', result: true}},
