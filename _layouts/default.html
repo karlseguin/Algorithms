@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <link href="/public/css/main.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/public/js/jquery.code.js"></script>
+    <script src="/public/js/jquery.example.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script src="/public/js/teacher.js"></script>
+  </head>
+  <body>
+    <div id="site">
+      <div id="head"></div>
+      <div id="left">
+        <p><a href="/">home</a></p>
+        <p><a href="/search/linear.html">linear search</a></p>
+        <p><a href="/structures/arrays.html">arrays</a></p>
+        <p><a href="/structures/linkedlists.html">linked lists</a></p>
+        <p><a href="/structures/hashtables.html">hash tables</a></p>
+        <p><a href="/search/binarysearch.html">binary search</a></p>
+        <p><a href="/sort/bubblesort.html">bubble sort</a></p>
+        <p><a href="/sort/insertionsort.html">insertion sort</a></p>
+      </div>
+      <div id="content">
+        {{ content }}
+      </div>
+  </body>
+</html>

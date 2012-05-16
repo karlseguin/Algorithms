@@ -1,0 +1,54 @@
+---
+layout: post
+title: "Linear Search"
+permalink: "search/linear.html"
+disqus_id: "/algo/linearsearch"
+---
+
+<h1>Linear Search</h1>
+<p>A linear search is the most basic of search algorithm you can have. A linear search sequentially moves through your collection (or data structure) looking for a matching value.</p>
+
+<h2>Implementation</h2>
+<pre id="code1">
+function findIndex(values, target) {
+  <span class="line">for(var i = 0; i &lt; values.length; ++i){</span>
+    <span class="line">if (values[i] == target)</span> { <span class="line">return i;</span> }
+  }
+  return -1;
+}
+<span class="line">findIndex([7, 3, 6, 1, 0], 6)</span>
+</pre>
+
+<h2>Example</h2>
+<p>Click <em>step</em> to step through the above implementation and find 6 within the following list</p>
+<div id="example1">
+  <div class="nodeList"><div>7</div><div>3</div><div>6</div><div>1</div><div>0</div></div>
+  <div class="step">step</div>
+</div>
+
+<h2>Characteristics</h2>
+<p>The worst case performance scenario for a linear search is that it needs to loop through the entire collection; either because the item is the last one, or because the item isn't found. In other words, if you have <em>N</em> items in your collection, the worst case scenario to find an item is <em>N</em> iterations. This is known as <em>O(N)</em> using the <a href="http://en.wikipedia.org/wiki/Big_O_notation">Big O Notation</a>. The speed of search grows linearly with the number of items within your collection.</p>
+
+<p>Linear searches don't require the collection to be sorted.</p>
+
+<p>In some cases, you'll know ahead of time that some items will be disproportionally searched for. In such situations, frequently requested items can be kept at the start of the collection. This can result in exceptional performance, regardless of size, for these frequently requested items.</p>
+
+<h2>In The Real World</h2>
+<p>Despite its less than stellar performance, linear searching is extremely common. Many of the built-in methods that you are familiar with, like ruby's <code>find_index</code>, or much of jQuery, rely on linear searches. When you are dealing with a relatively small set of data, it's often good enough (and for really small unordered data is can even be faster than alternatives).</p>
+
+<p>Beyond this though, the general concept of sequential/linear access is something that is often overlooked. The more abstract libraries get, the more risk you run of unknowingly doing something linearly. .NET's LINQ is a great example. Most of LINQ works against <code>IEnumerable<T></code> which only exposes a forward moving enumerator. So what do you think happens when you call the <code>Count()</code> method? Thankfully, LINQ is smart and, if possible, it'll rely on a fast <code>Count</code> or <code>Length</code> property. However, if the actual implementation doesn't have those, it'll loop through the enumerator.</p>
+
+<p>That doesn't make LINQ's <code>Any</code>, or Ruby's <code>include?</code> "evil". It's just good to know what these high level methods might be doing (and often, what they are doing, is a linear search).<p>
+
+<div id="nav">
+  <a href="/" id="prev">&laquo; home</a>
+  <a href="/structures/arrays.html" id="next">arrays &raquo;</a>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+  var $code1 = $('#code1').code({});
+  $('#example1').example({code: $code1, instructions: instructions.linearSearch});
+});
+</script>

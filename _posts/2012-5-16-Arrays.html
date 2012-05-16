@@ -1,0 +1,85 @@
+---
+layout: post
+title: "Arrays and Dynamic Arrays"
+permalink: "structures/arrays.html"
+disqus_id: "/algo/arrays"
+---
+
+<h1>Arrays and Dynamic Arrays</h1>
+<p>In the traditional definition of an array, the key concept is that elements of an array occupy a contiguous block of memory. This has a couple important consequences. First, once created, an array cannot grow (because the adjacent memory might already be taken). Secondly, arrays can be randomly accessed. When you use square brackets to access an array element <code>[X]</code>), you are actually saying <em>move forward within the memory from the start of the allocation by X</em>. That explains why indexes start at 0, because the first item is retrieved by moving forward by 0.</p>
+
+<p>Many languages have, what they call, "arrays" that <strong>can</strong> grow. Technically, these are dynamic arrays. Java and C# have <code>ArrayLists</code> which are also dynamic arrays. A dynamic array wraps a real array and allows it to grow. How? Once the array fills up, a new, larger, memory location is found and the original is copied to the new space.</p>
+
+
+<h2>Implementation</h2>
+<pre id="code1">
+function ArrayList(initialLength) {
+  this.length = 0;
+  this.array = new Array(initialLength);
+
+  this.add = function(value) {
+    <span class="line">if (this.length == this.array.length){</span>
+      <span class="line">this.grow();</span>
+    }
+    <span class="line">this.array[this.length++] = value;</span>
+  };
+  this.grow = function() {
+    var original = this.array;
+    <span class="line">this.array = new Array(this.length * 2);</span>
+    for(var i = 0; i &lt; this.length; ++i) {
+      <span class="line">this.array[i] = original[i];</span>
+    };
+  }
+}
+<span class="line">var array = new ArrayList(1);</span>
+<span class="line">array.add(2);</span>
+<span class="line">array.add(9);</span>
+<span class="line">array.add(4);</span>
+</pre>
+
+<h2>Example</h2>
+<p>Click <em>step</em> to add the values to our dynamic array</p>
+<div id="example1">
+  <div class="nodeList">
+    <div>&nbsp;</div>
+    <div class="used"></div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div class="used hide"></div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+  </div>
+  <div class="step">step</div>
+</div>
+
+<h2>Characteristics</h2>
+<p>When an insert occurs in a filled dynamic array, the growth algorithm must be executed. This means that inserts provide inconsistent performance as well as non-linear growth. The implementation of the growth algorithm obviously has a great impact. Like our implementation, many simply double the size; however, most are able to provide more efficient copying than what we've done.</p>
+
+
+<h2>In The Real World</h2>
+<p>Strings are the most common example of fixed arrays we use. They truly should be considered arrays of characters. And, like all arrays, their size is set when initialized. This is why many people warn that string are <em>immutable</em> and that appending multiple times causes poor performance. Like a dynamic array, a string must be reallocated to a larger space whenever values are appended. However, unlike a dynamic array this is handled at compile time and no buffering is used. In other words, appending a value to a string will allocate just enough space for the new combined value. This is where <code>StringBuilder</code> classes come into play. A <code>StringBuilder</code> is nothing more than a dynamic arrays for strings with some extra buffer space. When it fills up, it too must be copied to a new, larger, memory block.</p>
+
+<p>The most important thing to do, when dealing with a dynamic array which will see many inserts, is to specify an adequate initial size. Many implementations start with a small default, say 20. This means that if you are inserting 10 000 values, it'll have to grow 9 times. It'll also fragment your memory (leaving 8 empty holes), causing additional compaction.</p>
+
+<p>Some languages, such as Ruby rely solely on dynamic arrays. Others, like Java and C# expose both types. In this day and age, it's hard to come up with real-world use cases for absolutely requiring fixed arrays.</p>
+
+<div id="nav">
+  <a href="/search/linear.html" id="prev">&laquo; linear search</a>
+  <a href="/structures/linkedlists.html" id="next">linked lists &raquo;</a>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+  var $code = $('#code1').code({});
+  var $example1 = $('#example1').example({
+    code: $code,
+    instructions: instructions.dynamicArray,
+    hideAllOnEnd: true,
+    hideAllOnStart: true
+  });
+});
+</script>
